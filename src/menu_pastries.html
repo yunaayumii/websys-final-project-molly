@@ -150,11 +150,26 @@
             display: flex;
             overflow: hidden;
             position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gallery--main-image .item {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gallery--main-image .item:first-child {
+            display: block;
         }
 
         .gallery--main-image img {
             width: 100%;
+            height: auto;
             border-radius: 20px;
+            max-height: 500px;
+            object-fit: cover;
         }
 
         .gallery-thumbnails {
@@ -190,6 +205,58 @@
 
         .item--description {
             margin-top: 20px;
+        }
+
+        .pastry-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pastry-nav-btn {
+            padding: 8px 16px;
+            background-color: #ffcb82;
+            color: #0f0f0f;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .pastry-nav-btn:hover {
+            background-color: #f20a0a;
+            color: #fafafa;
+            transform: translateY(-3px);
+        }
+
+        .pastry-nav-btn.active {
+            background-color: #f20a0a;
+            color: #fafafa;
+        }
+
+        .item--category {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .item--title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .description-label {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .item--description {
+            margin-top: 20px;
+            margin-bottom: 30px;
         }
     </style>
 </head>
@@ -230,6 +297,8 @@
      
     <section class="container">
         <div class="row">
+
+            <!-- image and button container -->
             <div class="col-12 col-md-7">
                 <ul class="gallery--main-image list-unstyled">
                     <li class="item">
@@ -242,40 +311,43 @@
                         <img src="https://picsum.photos/seed/sides/262/262" alt="Pastry 3">
                     </li>
                 </ul>
-                <ul class="gallery-thumbnails list-unstyled">
-                    <li class="gallery-thumbnail-item">
-                        <img src="path/to/pastry1_thumb.jpg" alt="Pastry 1">
-                    </li>
-                    <li class="gallery-thumbnail-item">
-                        <img src="path/to/pastry2_thumb.jpg" alt="Pastry 2">
-                    </li>
-                    <li class="gallery-thumbnail-item">
-                        <img src="path/to/pastry3_thumb.jpg" alt="Pastry 3">
-                    </li>
-                </ul>
+                <div class="pastry-nav">
+                    <button class="pastry-nav-btn active" data-pastry="0">Pastry 1</button>
+                    <button class="pastry-nav-btn" data-pastry="1">Pastry 2</button>
+                    <button class="pastry-nav-btn" data-pastry="2">Pastry 3</button>
+                </div>
             </div>
+
+            <!-- item descriptions -->
             <div class="item--details col-12 col-md-5">
+                <h3 class="item--category">Pastries</h3>
                 <h1 class="item--title">Pastry 1</h1>
                 <div class="item--description">
+                    <div class="description-label">Product Description</div>
                     <p>Description of Pastry 1.</p>
                 </div>
                 <a href="order_link" class="btn btn-primary">Order Now</a>
             </div>
         </div>
     </section>
+    
     <!-- selection of pages -->
     <section>
 
     </section>
 
     <script>
-        document.querySelectorAll('.gallery-thumbnail-item').forEach((thumbnail, index) => {
-            thumbnail.addEventListener('click', () => {
-                document.querySelectorAll('.gallery--main-image .item').forEach((item, i) => {
-                    item.style.display = i === index ? 'block' : 'none';
+        document.querySelectorAll('.pastry-nav-btn').forEach((button) => {
+            button.addEventListener('click', () => {
+                const pastryIndex = parseInt(button.getAttribute('data-pastry'));
+                document.querySelectorAll('.pastry-nav-btn').forEach((btn, index) => {
+                    btn.classList.toggle('active', index === pastryIndex);
                 });
-                document.querySelector('.item--title').textContent = `Pastry ${index + 1}`;
-                document.querySelector('.item--description p').textContent = `Description of Pastry ${index + 1}.`;
+                document.querySelectorAll('.gallery--main-image .item').forEach((item, index) => {
+                    item.style.display = index === pastryIndex ? 'block' : 'none';
+                });
+                document.querySelector('.item--title').textContent = `Pastry ${pastryIndex + 1}`;
+                document.querySelector('.item--description p').textContent = `Description of Pastry ${pastryIndex + 1}.`;
             });
         });
     </script>
