@@ -1,0 +1,182 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #161616;
+}
+
+h1, h2 {
+    font-family: 'Baskervville', 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+
+p, a {
+    font-family:'Segoe UI', Arial, Helvetica, sans-serif;
+    
+}
+
+.btn-primary {
+    background-color: #dd2e2e;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #161616;
+    color: #dd2e2e;
+}
+
+.navbar {
+    background-color: #161616   ;
+}
+
+.navbar ul li a {
+    color: #ffffff;
+}
+
+.navbar ul li a:hover {
+    color: #dd2e2e;
+}
+
+.navbar-brand {
+    font-family: 'Baskervville', 'Times New Roman', Times, serif;
+    color: #dd2e2e;
+}
+
+.navbar-brand:hover {
+    color: #dd2e2e;
+}
+
+.navbar-brand:focus {
+    color: #dd2e2e;
+}
+
+.nav-link:focus {
+    color: #ffffff;
+}
+
+.navbar-nav .nav-link.show {
+    color: #dd2e2e;
+}
+
+.navbar-toggler {
+    color: #dd2e2e;
+    border: none;
+}
+
+.navbar-toggler-icon {
+    color: #ffffff;
+}
+
+.dropdown-menu {
+    background-color: #dd2e2e;
+    color: #161616;
+    border: none;
+    border-radius: 0;
+}
+
+.dropdown-item:hover {
+    background-color: #ffffff;
+    color: #dd2e2e;
+}
+
+.slide-1 {
+    background-image: url(resources/home/DMC5_Nero_Face.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+}
+
+.slide-2 {
+    background-image: url(resources/home/DMC5_Dante_Face.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+}
+
+.slide-3 {
+    background-image: url(resources/home/DMC5_Vergil_Face.png);
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+}
+
+.slide-content {
+    color: #ffffff;
+}
+
+.arrival {
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    margin: 4rem auto;
+}
+
+.arrival-content {
+    border: 1px solid #c49a6c;
+}
+
+.arrival-desc h1 {
+    color: #c49a6c;
+    border-bottom: 1px solid #c49a6c;
+}
+
+.arrival-desc p {
+    color: #ffffff;
+}
+
+.feature-container {
+    background-color: #8c7e75;
+    margin: 4rem 0;
+}
+
+.feature-container h2 {
+    color: #fff;
+}
+
+.card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0;
+}
+
+.image-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-wrapper:hover .card-img {
+    transform: scale(1.02);
+}
+
+.card-title {
+    min-height: 50px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.btn-secondary {
+    background-color: #5a4d41;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #161616;
+    color: #dd2e2e;
+}
